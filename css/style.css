@@ -1,3 +1,6 @@
+body{
+  font-family: 'Kanit', sans-serif;
+}
 .row{
   text-align:center;
   
@@ -5,5 +8,27 @@
 #choices{
   display:flex;
   justify-content:space-between;
-  
+  margin: 0 auto;
+  width: 60%;
+  background: #d6fbf8;
+  padding-left: 1%;
+  padding-right: 1%;
+  font-size:120%;
+}
+#result{
+  margin: 0 auto;
+  width: 60%;
+  padding-left: 1%;
+  padding-right: 1%;
+  font-size:120%;
+}
+#input{
+  margin-bottom:2%;
+}
+.choices{
+  padding: 1%;
+  width: 10%;
+}
+img:hover{
+  width: 13%;
 }
