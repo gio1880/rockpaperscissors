@@ -30,6 +30,13 @@ function winneranimation (){
     $("#result").animate({opacity: '0.4'}, "slow");
     $("#result").animate({opacity: '0.8'}, "slow");
 }
+function tiedanimation (){
+    $("#result").css("background","red");
+    $("#result").css("padding-top","3%");
+    $("#result").css("padding-bottom","3%");
+    $("#result").animate({opacity: '0.4'}, "slow");
+    $("#result").animate({opacity: '0.8'}, "slow");
+}
 function gameLogic() {
     //variables
     var randomIndex = Math.floor(Math.random() * choices.length); 
@@ -44,7 +51,7 @@ function gameLogic() {
     // Tied Situation
     if(input === randomElement || playerChoice === randomElement){
         $("#result").text("Tied");
-        winneranimation();
+        tiedanimation();
     }
     // paper and rock
     else if((input==="paper" || playerChoice === "parent") && randomElement==="rock" ){
