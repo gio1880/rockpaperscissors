@@ -23,19 +23,21 @@ $("#scissors").click(function(){
     playerChoice = "scissors";
     gameLogic();
 });
-function winneranimation (){
-    $("#result").css("background","gold");
-    $("#result").css("padding-top","3%");
-    $("#result").css("padding-bottom","3%");
-    $("#result").animate({opacity: '0.4'}, "slow");
-    $("#result").animate({opacity: '0.8'}, "slow");
-}
-function tiedanimation (){
-    $("#result").css("background","red");
-    $("#result").css("padding-top","3%");
-    $("#result").css("padding-bottom","3%");
-    $("#result").animate({opacity: '0.4'}, "slow");
-    $("#result").animate({opacity: '0.8'}, "slow");
+function resultAnimation (result){
+    if(result === "won" ) {
+        $("#result").css("background","gold");
+        $("#result").css("padding-top","3%");
+        $("#result").css("padding-bottom","3%");
+        $("#result").animate({opacity: '0.4'}, "slow");
+        $("#result").animate({opacity: '0.8'}, "slow");
+    }
+    else if(result === "Tied"){
+        $("#result").css("background","red");
+        $("#result").css("padding-top","3%");
+        $("#result").css("padding-bottom","3%");
+        $("#result").animate({opacity: '0.4'}, "slow");
+        $("#result").animate({opacity: '0.8'}, "slow");
+    }
 }
 function gameLogic() {
     //variables
@@ -51,33 +53,33 @@ function gameLogic() {
     // Tied Situation
     if(input === randomElement || playerChoice === randomElement){
         $("#result").text("Tied");
-        tiedanimation();
+        resultAnimation("Tied");
     }
     // paper and rock
     else if((input==="paper" || playerChoice === "parent") && randomElement==="rock" ){
         $("#result").text("Player Won !");
-        winneranimation();
+        resultAnimation("won");
     }
     else if((input==="rock" || playerChoice ==="rock") && randomElement==="paper"){
         $("#result").text("Computer Won !");
-        winneranimation();
+        resultAnimation("won");
     }
     // scissors and rock
     else if((input==="scissors" || playerChoice === "scissors") && randomElement==="rock"){
         $("#result").text("Computer Won !");
-        winneranimation();
+        resultAnimation("won");
     }
     else if((input==="rock" || playerChoice === "rock") && randomElement==="scissors"){
         $("#result").text("Player Won !");
-        winneranimation();
+        resultAnimation("won");
     }
     // scissors and paper
     else if((input==="paper" || playerChoice === "paper") && randomElement==="scissors"){
         $("#result").text("Computer Won !");
-        winneranimation();
+        resultAnimation("won");
     }
     else if((input==="scissors" || playerChoice === "scissors") && randomElement==="paper"){
         $("#result").text("Player Won !");
-        winneranimation();
+        resultAnimation("won");
     }
 }
